@@ -1,0 +1,308 @@
+import React from 'react';
+
+interface HippoFlowLogoProps {
+  className?: string;
+  showSubtitle?: boolean;
+}
+
+export const HippoFlowLogo: React.FC<HippoFlowLogoProps> = ({
+  className = 'w-full max-w-[280px]',
+  showSubtitle = true,
+}) => {
+  return (
+    <div className={`flex flex-col items-center select-none ${className}`}>
+      <svg
+        viewBox="0 0 540 140"
+        className="w-full h-auto overflow-visible"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          {/* Radial glow for aquatic medallion */}
+          <radialGradient id="vortexGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stopColor="#e0f2fe" stopOpacity="0.8" />
+            <stop offset="60%" stopColor="#0284c7" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#0369a1" stopOpacity="0" />
+          </radialGradient>
+
+          {/* Shrimp Gradient */}
+          <linearGradient id="shrimpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#38bdf8" />
+            <stop offset="40%" stopColor="#0284c7" />
+            <stop offset="100%" stopColor="#0369a1" />
+          </linearGradient>
+
+          {/* Fish Gradient */}
+          <linearGradient id="fishGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#0284c7" />
+            <stop offset="60%" stopColor="#0ea5e9" />
+            <stop offset="100%" stopColor="#38bdf8" />
+          </linearGradient>
+
+          {/* Water Swirl Ribbon Gradient */}
+          <linearGradient id="waterSwirlGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#0ea5e9" />
+            <stop offset="50%" stopColor="#0284c7" />
+            <stop offset="100%" stopColor="#075985" />
+          </linearGradient>
+        </defs>
+
+        {/* --- MAIN BRAND NAME: HIPP [MEDALLION] FLOW --- */}
+        <g transform="translate(0, 15)">
+          {/* "HIPP" in Electric Sky Blue */}
+          <text
+            x="8"
+            y="68"
+            fill="#0088FF"
+            style={{
+              fontFamily: "'Roboto Slab', 'Clarendon', 'Rockwell', serif",
+              fontWeight: 800,
+              fontSize: '66px',
+              letterSpacing: '2px',
+            }}
+          >
+            HIPP
+          </text>
+
+          {/* --- CIRCULAR SEAFOOD MEDALLION (Centered at X: 236, Y: 44, Radius: 36) --- */}
+          <g transform="translate(236, 44)">
+            {/* Soft backdrop glow */}
+            <circle cx="0" cy="0" r="35" fill="url(#vortexGlow)" />
+
+            {/* Splash droplet particles around perimeter */}
+            <g fill="#0284c7" opacity="0.85">
+              <circle cx="-32" cy="-14" r="2.2" />
+              <circle cx="-29" cy="-24" r="1.6" />
+              <circle cx="-16" cy="-33" r="2" />
+              <circle cx="0" cy="-36" r="2.4" />
+              <circle cx="15" cy="-34" r="1.8" />
+              <circle cx="30" cy="-22" r="2.2" />
+              <circle cx="35" cy="-7" r="1.5" />
+              <circle cx="34" cy="12" r="2.3" />
+              <circle cx="28" cy="24" r="1.8" />
+              <circle cx="16" cy="33" r="2" />
+              <circle cx="-2" cy="36" r="2.4" />
+              <circle cx="-18" cy="32" r="1.9" />
+              <circle cx="-31" cy="18" r="2.1" />
+              <circle cx="-35" cy="4" r="1.6" />
+
+              {/* Smaller satellite splash droplets */}
+              <circle cx="-37" cy="-9" r="1" />
+              <circle cx="-21" cy="-38" r="1.2" />
+              <circle cx="8" cy="-39" r="1.1" />
+              <circle cx="38" cy="-17" r="1" />
+              <circle cx="38" cy="19" r="1.1" />
+              <circle cx="24" cy="37" r="1.2" />
+              <circle cx="-11" cy="39" r="1" />
+              <circle cx="-38" cy="13" r="1.1" />
+            </g>
+
+            {/* Outer Swirling Water Vortex Arc (Clockwise flow) */}
+            <path
+              d="M -30,-8 C -33,8 -24,28 0,33 C 18,37 32,24 33,6 C 34,-12 22,-29 2,-33 C -18,-37 -30,-22 -29,-9"
+              fill="none"
+              stroke="url(#waterSwirlGrad)"
+              strokeWidth="3.2"
+              strokeLinecap="round"
+              strokeDasharray="40 8 20 6"
+            />
+            <path
+              d="M 28,-14 C 33,-2 32,16 18,27 C 4,37 -18,32 -27,18"
+              fill="none"
+              stroke="#38bdf8"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+            />
+
+            {/* --- UPPER CREST: SHRIMPP / PRAWN --- */}
+            {/* Curved segmented shrimp body arching over top-right */}
+            <g>
+              {/* Main curved body */}
+              <path
+                d="M -8,-16 
+                   C -2,-28 14,-29 24,-18 
+                   C 29,-12 30,-2 26,6 
+                   C 24,9 20,8 19,4 
+                   C 23,-2 22,-10 17,-15 
+                   C 11,-21 0,-21 -5,-13 
+                   Z"
+                fill="url(#shrimpGrad)"
+              />
+              {/* Body segments (ridges) */}
+              <path
+                d="M 3,-23 C 7,-24 13,-23 18,-19"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                opacity="0.9"
+              />
+              <path
+                d="M 12,-20 C 16,-19 21,-15 23,-10"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                opacity="0.9"
+              />
+              <path
+                d="M 18,-15 C 22,-12 25,-7 25,-1"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="1.2"
+                strokeLinecap="round"
+                opacity="0.9"
+              />
+
+              {/* Fan tail at inner-left */}
+              <path
+                d="M -7,-14 C -12,-16 -16,-13 -18,-17 C -15,-19 -10,-18 -7,-15 Z"
+                fill="#0284c7"
+              />
+              <path
+                d="M -6,-12 C -11,-12 -15,-8 -18,-10 C -16,-13 -11,-14 -6,-13 Z"
+                fill="#0369a1"
+              />
+
+              {/* Head, Rostrum & Antennae sweeping clockwise */}
+              <path
+                d="M 26,5 C 28,10 27,15 23,19 C 22,17 23,13 24,9 Z"
+                fill="#0284c7"
+              />
+              {/* Whiskers / Antennae */}
+              <path
+                d="M 25,12 C 28,17 28,26 21,29"
+                fill="none"
+                stroke="#0284c7"
+                strokeWidth="1"
+                strokeLinecap="round"
+              />
+              <path
+                d="M 23,14 C 29,19 32,28 27,33"
+                fill="none"
+                stroke="#38bdf8"
+                strokeWidth="0.8"
+                strokeLinecap="round"
+              />
+              {/* Little swimmer legs */}
+              <path
+                d="M 17,2 C 16,6 14,8 13,10 M 20,-3 C 19,1 18,4 17,6"
+                fill="none"
+                stroke="#0284c7"
+                strokeWidth="1"
+                strokeLinecap="round"
+              />
+              {/* Eye dot */}
+              <circle cx="23" cy="8" r="1.2" fill="#0c4a6e" />
+              <circle cx="23.2" cy="7.8" r="0.4" fill="#ffffff" />
+            </g>
+
+            {/* --- LOWER CREST: FISH --- */}
+            {/* Swimming fish facing left/clockwise along the bottom */}
+            <g>
+              {/* Fish main body */}
+              <path
+                d="M -22,0 
+                   C -28,8 -24,18 -15,22 
+                   C -3,26 12,22 18,12 
+                   C 12,14 2,16 -7,13 
+                   C -15,10 -19,4 -20,-1 
+                   Z"
+                fill="url(#fishGrad)"
+              />
+              {/* Fish Tail fin */}
+              <path
+                d="M 17,13 C 23,15 27,11 30,8 C 28,14 27,19 29,23 C 25,20 20,17 16,14 Z"
+                fill="#0284c7"
+              />
+              {/* Dorsal fin */}
+              <path
+                d="M -10,23 C -6,27 0,27 5,22 C 0,22 -5,22 -9,21 Z"
+                fill="#0369a1"
+              />
+              {/* Pectoral fin */}
+              <path
+                d="M -15,14 C -11,17 -7,16 -5,13 C -8,13 -12,13 -15,14 Z"
+                fill="#38bdf8"
+              />
+              {/* Gill curve */}
+              <path
+                d="M -18,6 C -16,10 -17,14 -20,16"
+                fill="none"
+                stroke="#0c4a6e"
+                strokeWidth="1"
+                strokeLinecap="round"
+              />
+              {/* Fish eye */}
+              <circle cx="-21" cy="7" r="1.5" fill="#ffffff" />
+              <circle cx="-21.2" cy="7" r="0.9" fill="#0c4a6e" />
+
+              {/* Body scales / texture lines */}
+              <path
+                d="M -12,9 C -10,12 -8,11 -6,9"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="0.8"
+                opacity="0.8"
+              />
+              <path
+                d="M -6,11 C -4,14 -2,13 0,11"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="0.8"
+                opacity="0.8"
+              />
+              <path
+                d="M 0,13 C 2,16 5,15 7,13"
+                fill="none"
+                stroke="#ffffff"
+                strokeWidth="0.8"
+                opacity="0.8"
+              />
+            </g>
+
+            {/* Inner dynamic bubble swirl */}
+            <circle cx="1" cy="-4" r="1.6" fill="#ffffff" opacity="0.9" />
+            <circle cx="-5" cy="2" r="1.3" fill="#ffffff" opacity="0.85" />
+            <circle cx="6" cy="4" r="1.1" fill="#ffffff" opacity="0.8" />
+            <circle cx="-2" cy="-9" r="0.9" fill="#7dd3fc" />
+            <circle cx="3" cy="9" r="1" fill="#7dd3fc" />
+          </g>
+
+          {/* "FLOW" in Vivid Coral Orange-Red */}
+          <text
+            x="282"
+            y="68"
+            fill="#F04C23"
+            style={{
+              fontFamily: "'Roboto Slab', 'Clarendon', 'Rockwell', serif",
+              fontWeight: 800,
+              fontSize: '66px',
+              letterSpacing: '2px',
+            }}
+          >
+            FLOW
+          </text>
+        </g>
+
+        {/* --- SUBTITLE: "Smart Technology for Seafood Processing" --- */}
+        {showSubtitle && (
+          <text
+            x="270"
+            y="126"
+            textAnchor="middle"
+            fill="#111827"
+            style={{
+              fontFamily:
+                "system-ui, -apple-system, 'Outfit', 'Segoe UI', Roboto, sans-serif",
+              fontSize: '20.5px',
+              fontWeight: 500,
+              letterSpacing: '0.8px',
+            }}
+          >
+            Smart Technology for Seafood Processing
+          </text>
+        )}
+      </svg>
+    </div>
+  );
+};

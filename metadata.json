@@ -1,0 +1,6 @@
+{
+  "name": "Blueflame Login",
+  "description": "Authentication and login screen featuring the Hippo Flow brand and seafood processing smart technology identity.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
